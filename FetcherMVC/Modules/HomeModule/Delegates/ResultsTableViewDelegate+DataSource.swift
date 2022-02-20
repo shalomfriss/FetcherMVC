@@ -10,6 +10,7 @@ import UIKit
 
 class ResultsTableViewDelegateDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
     public var results:[ResultVO]?
+    public var rowSelected: ((Int) -> Void)?
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return results?.count ?? 0
@@ -25,8 +26,6 @@ class ResultsTableViewDelegateDataSource: NSObject, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let result = results?[indexPath.row] {
-            
-        }
+        rowSelected?(indexPath.row)
     }
 }

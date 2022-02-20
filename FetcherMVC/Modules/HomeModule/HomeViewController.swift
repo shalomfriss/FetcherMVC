@@ -27,6 +27,7 @@ class HomeViewController: UIViewController {
     
     //MARK: - Setup
     private func setupUI() {
+        tableViewDelegateDataSource.rowSelected = self.rowSelected
         tableView.delegate = tableViewDelegateDataSource
         tableView.dataSource = tableViewDelegateDataSource
         self.view.addSubview(tableView)
@@ -67,7 +68,10 @@ class HomeViewController: UIViewController {
         })
     }
     
-    
+    func rowSelected(index: Int) {
+        print(index)
+        self.performSegue(withIdentifier: "showDetail", sender: nil)
+    }
     
     
 }
