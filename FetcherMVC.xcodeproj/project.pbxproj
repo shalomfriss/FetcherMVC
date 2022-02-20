@@ -10,6 +10,7 @@
 		44147F0727C2DA2B00760B91 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44147F0627C2DA2B00760B91 /* HomeViewController.swift */; };
 		44147F0A27C2DBA300760B91 /* ResultsTableViewDelegate+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44147F0927C2DBA300760B91 /* ResultsTableViewDelegate+DataSource.swift */; };
 		44147F0C27C2DCD600760B91 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44147F0B27C2DCD600760B91 /* HomeModel.swift */; };
+		44147F1027C2E64000760B91 /* ResultsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44147F0F27C2E64000760B91 /* ResultsTableCell.swift */; };
 		4472E4E727BE0F2800570805 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4472E4E627BE0F2800570805 /* AppDelegate.swift */; };
 		4472E4E927BE0F2800570805 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4472E4E827BE0F2800570805 /* SceneDelegate.swift */; };
 		4472E4EB27BE0F2800570805 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4472E4EA27BE0F2800570805 /* ViewController.swift */; };
@@ -51,6 +52,7 @@
 		44147F0627C2DA2B00760B91 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		44147F0927C2DBA300760B91 /* ResultsTableViewDelegate+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ResultsTableViewDelegate+DataSource.swift"; sourceTree = "<group>"; };
 		44147F0B27C2DCD600760B91 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		44147F0F27C2E64000760B91 /* ResultsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsTableCell.swift; sourceTree = "<group>"; };
 		4472E4E327BE0F2800570805 /* FetcherMVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FetcherMVC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4472E4E627BE0F2800570805 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4472E4E827BE0F2800570805 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +127,22 @@
 			path = Delegates;
 			sourceTree = "<group>";
 		};
+		44147F0D27C2E62600760B91 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				44147F0E27C2E62C00760B91 /* Cells */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		44147F0E27C2E62C00760B91 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				44147F0F27C2E64000760B91 /* ResultsTableCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		4436358127C2D22500FE379E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +208,7 @@
 		4472E51627BE969D00570805 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				44147F0D27C2E62600760B91 /* UI */,
 				4472E52827BE993C00570805 /* Models */,
 				4472E51C27BE97A500570805 /* Network */,
 				4472E51B27BE979B00570805 /* Constants */,
@@ -377,6 +396,7 @@
 				44147F0C27C2DCD600760B91 /* HomeModel.swift in Sources */,
 				4472E52527BE98CB00570805 /* NetworkError.swift in Sources */,
 				4472E4E927BE0F2800570805 /* SceneDelegate.swift in Sources */,
+				44147F1027C2E64000760B91 /* ResultsTableCell.swift in Sources */,
 				4472E52A27BE994B00570805 /* MovieSearchResultsModel.swift in Sources */,
 				4472E51827BE96A600570805 /* Constants.swift in Sources */,
 				44147F0727C2DA2B00760B91 /* HomeViewController.swift in Sources */,

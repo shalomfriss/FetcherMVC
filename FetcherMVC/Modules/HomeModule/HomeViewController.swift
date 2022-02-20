@@ -12,24 +12,40 @@ class HomeViewController: UIViewController {
     lazy var homeModel = HomeModel()
     lazy var tableView:UITableView =  UITableView()
     lazy var tableViewDelegateDataSource:ResultsTableViewDelegateDataSource = ResultsTableViewDelegateDataSource()
+    var kvoToken: NSKeyValueObservation?
     
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         loadData()
     }
     
+    deinit {
+        kvoToken?.invalidate()
+    }
+    
+    //MARK: - Setup
     private func setupUI() {
-        tableView.backgroundColor = UIColor.red
-        tableViewDelegateDataSource.results = homeModel.results
         tableView.delegate = tableViewDelegateDataSource
         tableView.dataSource = tableViewDelegateDataSource
         self.view.addSubview(tableView)
+        
+        //Bind the data
+        kvoToken = homeModel.observe(\.results, options: .new) { (results, change) in
+            DispatchQueue.main.async { [weak self] in
+                self?.tableViewDelegateDataSource.results = self?.homeModel.results?.results
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+            }
+        }
         
         addConstraints()
     }
     
     private func addConstraints() {
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             tableView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
             tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor),
@@ -43,14 +59,7 @@ class HomeViewController: UIViewController {
         searchService.fetch(searchTerm: "Lord", completion: { [weak self] results in
             switch(results) {
             case .success(let results):
-                print("Success")
-                print(results.results?[0].title)
                 self?.homeModel.results = results
-                self?.tableViewDelegateDataSource.results = self?.homeModel.results
-                DispatchQueue.main.async { [weak self] in
-                    self?.tableView.reloadData()
-                }
-               
             case .failure(let error):
                 print("Error")
                 print(error)

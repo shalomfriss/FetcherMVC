@@ -11,7 +11,7 @@ import Foundation
 // MARK: - Results
 
 /// Results data object
-public struct MoviesearchResultsModel: Codable {
+public class MoviesearchResultsModel: NSObject, Codable {
     public let page: Int?
     public let totalResults: Int?
     public let totalPages: Int?

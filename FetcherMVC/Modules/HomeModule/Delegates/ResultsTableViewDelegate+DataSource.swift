@@ -9,18 +9,24 @@ import Foundation
 import UIKit
 
 class ResultsTableViewDelegateDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
-    public var results:MoviesearchResultsModel?
+    public var results:[ResultVO]?
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return results?.results?.count ?? 0
+        return results?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let result = results?.results?[indexPath.row] {
-            let cell = UITableViewCell()
-            cell.textLabel?.text = result.title
+        if let result = results?[indexPath.row] {
+            let cell = ResultsTableCell()
+            cell.setupCell(result: result)
+            return cell
         }
         return UITableViewCell()
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let result = results?[indexPath.row] {
+            
+        }
+    }
 }

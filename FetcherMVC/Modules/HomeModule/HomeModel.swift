@@ -7,6 +7,6 @@
 
 import Foundation
 
-class HomeModel {
-    var results:MoviesearchResultsModel?
+class HomeModel:NSObject {
+    @objc dynamic var results:MoviesearchResultsModel?
 }
