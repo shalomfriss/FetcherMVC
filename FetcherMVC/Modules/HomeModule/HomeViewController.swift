@@ -69,10 +69,16 @@ class HomeViewController: UIViewController {
     }
     
     func rowSelected(index: Int) {
-        print(index)
         self.performSegue(withIdentifier: "showDetail", sender: nil)
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let index = tableView.indexPathForSelectedRow?.row, let rowData = homeModel.results?.results?[index] {
+            if segue.destination is DetailsViewController {
+                let vc = segue.destination as? DetailsViewController
+                vc?.result = rowData
+            }
+        }
+    }
 }
 

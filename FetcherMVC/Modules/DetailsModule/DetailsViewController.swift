@@ -8,7 +8,7 @@
 import UIKit
 
 class DetailsViewController: UIViewController {
-
+    
     lazy var titleLabel: UILabel =  {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -17,24 +17,33 @@ class DetailsViewController: UIViewController {
         return label
     }()
     
+    lazy var favoriteSwitch: UISwitch = {
+        let favSwitch = UISwitch()
+        favSwitch.translatesAutoresizingMaskIntoConstraints = false
+        return favSwitch
+    }()
+    
+    var result:ResultVO?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         
-        titleLabel.text = "testing"
+        titleLabel.text = result?.title
     }
     
     private func setupUI() {
         self.view.addSubview(titleLabel)
+        self.view.addSubview(favoriteSwitch)
         addConstraints()
     }
     
     private func addConstraints() {
         NSLayoutConstraint.activate([
             titleLabel.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 20),
-            titleLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 120),
-            titleLabel.heightAnchor.constraint(equalToConstant: 40),
-            titleLabel.widthAnchor.constraint(equalToConstant: 200),
+            titleLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+            favoriteSwitch.leftAnchor.constraint(equalTo: titleLabel.leftAnchor),
+            favoriteSwitch.topAnchor.constraint(equalTo: titleLabel.topAnchor, constant: 20)
         ])
     }
 

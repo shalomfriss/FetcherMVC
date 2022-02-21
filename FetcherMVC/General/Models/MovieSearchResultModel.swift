@@ -25,6 +25,7 @@ public struct ResultVO: Codable {
     public let voteAverage: Double?
     public let overview: String?
     public let releaseDate: String?
+    public var isFavorite:Bool = false
     
     enum CodingKeys: String, CodingKey {
         case popularity     = "popularity"
